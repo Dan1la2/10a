@@ -48,3 +48,26 @@ print(2%9)
 for i in range(1, 11):
     if i % 2 == 0:  #% - dalijums bez atlikuma
         print(i, "ir pāra skaitlis")
+
+
+
+
+
+
+
+
+#02.02.2026
+
+#cikls while
+#while ar skaititāju (number)
+skaitlis = 0
+while skaitlis < 5:
+    print(skaitlis)
+    skaitlis += 1 #skaitlis = skaitlis + 1 (tas pats)
+
+
+parole = ""
+while parole != "1234":
+    parole = input("Ievadi paroli: ")
+
+print("Pareiza parole!")
