@@ -18,3 +18,22 @@ with open("students.csv", encoding="utf-8" ) as fails: #ar funkciju open tiek at
     for rinda in fails:
         vards,uzvards,pilseta = rinda.strip().split(",")  #saglabajam datus mainigos, sadalot pēc atdalitāja
         print(vards,uzvards,pilseta) #izvada informaciju
+
+
+#Tikai vārdu izvadīšana
+with open("students.csv", encoding="utf-8") as fails: #ar funkciju open() tiek atvērts csv fails,
+    next(fails) #Funkcija next() izlaiž vienu rindu failā
+    for rinda in fails:
+        vards,uzvards,pilseta = rinda.strip().split(",")  #saglabājam datus mainīgajos, sadalot pēc atdalītāja
+        print(vards) #Izvada tikai vārdu
+
+
+
+
+#Datu apstrādāšana - izvada tikai personas, kas dzīvo Jelgava
+with open("students.csv", encoding="utf-8") as fails: #ar funkciju open() tiek atvērts csv fails,
+    next(fails) #Funkcija next() izlaiž vienu rindu failā
+    for rinda in fails:
+        vards,uzvards,pilseta = rinda.strip().split(",")  #saglabājam datus mainīgajos, sadalot pēc atdalītāja
+        if pilseta == "Rīga": #Pārbaude, vai pilsēta ir Jelgava
+            print(vards) #Izvada personas vārdu, kas dzīvo Jelgava
