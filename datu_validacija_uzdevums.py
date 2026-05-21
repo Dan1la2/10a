@@ -19,3 +19,15 @@ if len(Vards) > 0: #vai ievade nav tukša
         print("Nepareizi")
 else:
     print("Nepareizi")
+
+summa = 0
+skaits = 0
+
+with open("dati_ieskaite.csv", encoding="utf-8") as f:
+    next(fails)
+
+    for line in fails:
+        vards, atzime = line.strip().split(",")
+
+        summa += int(atzime)
+        skaits += 1
