@@ -5,27 +5,32 @@
 
 
 class BankasKonts: 
-    def __init__ (self, ipasnieks, numurs): 
+    def __init__ (self, ipasnieks, numurs): #konta info
         self.ipasnieks = ipasnieks
         self.numurs = numurs
         self.atlikums = 0.0
 
-    def iemaksat(self, summa):
+    def iemaksat(self, summa): # iemaksā
         self.atlikums += summa
 
-    def iznemt(self, summa):
+    def iznemt(self, summa):  #izņem
         if summa > self.atlikums:
             print("Nepietiek līdzekļu kontā!")
         else:
             self.atlikums -= summa
 
-    def paradit_info(self):
+    def paradit_info(self): #parāda konta informāciju 
         print("Konts ipasnieks", self.ipasnieks)
         print("Konts numurs" ,self.numurs)
         print("Konts atlikums", self.atlikums)
 
-    def uz_failu(self):
+    def uz_failu(self):  #Jāizveido metode uz_failu()
         return self.ipasnieks, self.atlikums, self.numurs
+
+    def uz_failu(self):
+        with open("bankas_kods.csv", "w", encoding="utf-8") as f:
+          f.write("ipašnieks,konta numurs,atlikums\n")
+          f.write(f"{self.ipasnieks}, {self.numurs}, {self.atlikums}\n")
         
 
 
@@ -34,13 +39,16 @@ print("Konts1 ipašnieks: ", Konts1.ipasnieks)
 print("Konts1 numurs:", Konts1.numurs)
 print("Konts1 atlikums:", Konts1.atlikums)
 
-Konts1.iemaksat(300)
+Konts1.iemaksat(300)    # iemaksā 300 EUR
 print("Pec iemaksās Konts1 atlikums:", Konts1.atlikums)
     
-Konts1.iznemt(300)
+Konts1.iznemt(300)    #izņem 300 EUR
 print("Pec izņēmšanas Konts1 atlikums:", Konts1.atlikums)
 
-Konts1.iznemt(300)
+Konts1.iznemt(300)    #izņem 300 EUR(izņemt summu, kas pārsniedz atlikumu)
 print("Pec izņēmšanas Konts1 atlikums:", Konts1.atlikums)
     
-print(Konts1.uz_failu())
+print(Konts1.uz_failu()) #parāda konta informāciju pēc veiktajām darbībām;
+
+
+Konts1.uz_failu()
